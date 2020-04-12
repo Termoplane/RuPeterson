@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+body {
+    background-color: #FEFEFE;
+}
+
+.navbar {
+    background-color: #00303D;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-link{
+    font-size: 1.1em !important;
+}
+
+a:hover a:focus {
+    text-decoration: none;
+    color: #3183A8;
+    outline: none;
+}
+
+.navbar {
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.navbar-brand {
+    margin-left: 40px;
+}
+
+.nav-item > a {
+    color: #FEFEFE;
+}
+
+.nav-item:hover{
+    background-color: #3183A8;
+}
+
+.jumbotron > .col-md-6 > h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+#Article {
+    font-family: 'Nunito', sans-serif;
+    padding-right: 30px;
+    padding-left: 30px;
+    
+}
+
+#Article > h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+#Article > h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+#Archive {
+    border-left: grey solid 1px;
+    padding-left: 20px;
+    background-color: whitesmoke;
+}
+
+#Entry {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+}
+
+#Entry > h1 {
+    font-family: 'Playfair Display', serif;
+    
+}

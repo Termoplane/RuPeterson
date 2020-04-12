@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block left-content  %}
+<div class="col-md-9 pl-5" id="Entry">
+    <h1 class="text-center">
+        {{ entry.entry_header }}
+    </h1>
+    <div class="mb-1 text-muted">
+        {{ entry.pub_date }}
+    </div>
+    {% if entry.entry_image %}
+    <div class="text-center">
+        <img src="{{ entry.entry_image.url }}" style="max-width: 600px; max-height: 350px;">
+    </div>
+    {% endif %}
+    <p class="lead pb-3 mt-5">
+        {{ entry.entry_text }}
+    </p>
+    {% if entry.entry_video %}
+    <p class="text-center">
+        <iframe width="420" height="315"
+            src="{{ entry.entry_video }}">
+        </iframe>
+    </p>
+    {% endif %}
+</div>
+{% endblock left-content %}
