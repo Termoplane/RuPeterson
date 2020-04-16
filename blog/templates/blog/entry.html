@@ -18,11 +18,11 @@
         {{ entry.entry_text }}
     </p>
     {% if entry.entry_video %}
-    <p class="text-center">
-        <iframe width="420" height="315"
-            src="{{ entry.entry_video }}">
-        </iframe>
-    </p>
+    <div class = "video text-center">
+            <iframe
+                src="{{ entry.entry_video }}">
+            </iframe>
+    </div>
     {% endif %}
 </div>
 {% endblock left-content %}

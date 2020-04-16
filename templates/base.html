@@ -1,0 +1,152 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <title>Джордан Питерсон на русском</title>
+  </head>
+  <body>
+    <!-- Navigation panel -->
+    <nav class="navbar navbar-expand sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand mr-auto" href="{% url 'blog:blog' %}">
+                <img src="{% static 'blog/Maps-of-Meaning-Logo-1.png' %}" style="width: 50px;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'blog:blog' %}" class="nav-link"><i class="far fa-newspaper"> Переводы </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog:about' %}" class="nav-link"><i class="far fa-question-circle"> О проекте </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog:contacts' %}" class="nav-link"><i class="far fa-envelope"> Связаться </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog:donate' %}" class="nav-link"><i class="far fa-credit-card"> Поддержать </i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block upper-content %}
+    {% endblock upper-content %}
+     <!-- News div -->  
+    <div class="container-fluid" id="News_div">
+        <div class="row mb-3">
+            {% block left-content %}
+            {% endblock left-content %}
+            <div class="col-md-3 text-center" id="Archive">
+                <div class="mt-2 mb-3 p-2 border rounded shadow-sm" style="background-color: #FEFEFE;"> 
+                    <a class="vk-ic text-center btn btn-outline-secondary" href="https://vk.com/club192882367" style="text-decoration: none; color:black;">
+                        Группа вконтакте
+                        <i class="fab fa-vk fa-lg white-text mr-4"></i>
+                    </a>
+                </div>  
+                <p class="mt-2 mb-3 p-2 border rounded shadow-sm" style="background-color: #FEFEFE;">
+                    <a class="yt-ic text-center btn btn-outline-secondary" href="https://www.youtube.com/channel/UCVpPqZ2p-Yk_q2bNfODhLKg" style="text-decoration: none; color:black;">
+                        Канал Youtube
+                        <i class="fab fa-youtube fa-lg white-text mr-4"> </i>
+                    </a>
+                </p>
+                <h2 class="text-center pt-3 mb-3" style="font-family: 'Playfair Display', serif;">
+                    Последние переводы:
+                </h2>
+                <!-- Шаблон для последних двух статей -->
+                {% for entry in entries %}
+                    <div class="mb-3 pt-2 border rounded shadow-sm" id="Article" style="background-color: #FEFEFE;">
+                        <h5 class="text-center font-italic">
+                            {{ entry.entry_header }}
+                        </h5>
+                        <p class="lead pb-3" style="font-size: 14px;">
+                            {{ entry.entry_text|truncatewords:"10" }}
+                        </p>
+                        <p class="lead mb-3" style="font-size: 14px;">
+                            <a href ="{% url 'blog:entry' entry.id %}" class="btn btn-outline-primary">Посмотреть...</a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small indigo">
+
+        <!-- Footer Links -->
+        <div class="container">
+    
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="{% url 'blog:about' %}" class="btn btn-outline-primary"> О проекте </a>
+            </h6>
+            </div>
+
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="{% url 'blog:contacts' %}" class="btn btn-outline-primary"> Связаться </a>
+            </h6>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="{% url 'blog:donate' %}" class="btn btn-outline-primary"> Поддержать </a>
+            </h6>
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+    
+        <!-- Grid row-->
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+    
+        <!-- Grid row-->
+        <div class="row pb-3 pt-3">
+    
+            <!-- Grid column -->
+            <div class="col-md-12">
+    
+            <div class="mb-5 text-center">
+    
+                <!-- VK -->
+                <a class="vk-ic" href="https://vk.com/club192882367" style="text-decoration: none; color:black;">
+                <i class="fab fa-vk fa-lg white-text mr-4"></i>
+                </a>
+                <!--Youtube-->
+                <a class="yt-ic" href="https://www.youtube.com/channel/UCVpPqZ2p-Yk_q2bNfODhLKg" style="text-decoration: none; color:black;">
+                <i class="fab fa-youtube fa-lg white-text mr-4"> </i>
+                </a>
+                
+            </div>
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row-->
+    
+        </div>
+        <!-- Footer Links -->
+
+    
+    </footer>
+    <!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -25,7 +25,7 @@ SECRET_KEY = '@!#-^!nmp+e$3s06jei^e26u55y-$4*2*%_a&ibxz$o2*wes7-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rujpeterson.ru', 'www.rujpeterson.ru']
 
 
 # Application definition
@@ -57,7 +57,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            '/home/termoplan/Code/RuPeterson/RuPeterson/blog/templates/blog',
+            os.path.join(BASE_DIR, 'templates'),
+            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -81,8 +82,13 @@ WSGI_APPLICATION = 'RuPeterson.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u1018780_default',
+	'USER': 'u1018780_default',
+	'PASSWORD': 'V0_ywQq4',
+	'HOST': 'localhost',
+	'PORT': '',
+	
     }
 }
 
@@ -124,6 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'RuPeterson/blog/static'
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT= 'RuPeterson/media'
 MEDIA_URL= "/media/"
